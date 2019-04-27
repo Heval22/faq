@@ -11,10 +11,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    public function index()
-//    {
-//        //
-//    }
+    public function index()
+    {
+        //
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +34,6 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
         $input = $request->validate([
             'fname' => 'required',
             'lname' => 'required',
@@ -48,13 +47,7 @@ class ProfileController extends Controller
         $profile = new Profile($input);
         $profile->user()->associate(Auth::user());
         $profile->save();
-        return redirect()->route('profile')->with('message', 'Profile Created');
-    }
-    public function index()
-    {
-        $user = Auth::user();
-        $profile = $user->profile;
-        return view('profile')->with('profile', $profile);
+        return redirect()->route('home')->with('message', 'Profile Created');
     }
     /**
      * Display the specified resource.
@@ -102,7 +95,7 @@ class ProfileController extends Controller
         $profile->lname = $request->lname;
         $profile->body = $request->body;
         $profile->save();
-        return redirect()->route('profile')->with('message', 'Updated Profile');
+        return redirect()->route('home')->with('message', 'Updated Profile');
     }
     /**
      * Remove the specified resource from storage.
