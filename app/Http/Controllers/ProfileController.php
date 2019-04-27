@@ -95,7 +95,7 @@ class ProfileController extends Controller
         $profile->lname = $request->lname;
         $profile->body = $request->body;
         $profile->save();
-        return redirect()->route('home')->with('message', 'Updated Profile');
+        return redirect()->route('home')->with('message', 'Updated Profile' );
     }
     /**
      * Remove the specified resource from storage.
