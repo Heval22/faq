@@ -12,12 +12,16 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #64ad7a;
+                color: #e3e9ed;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+            }
+
+            body {
+                background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/circles1920x1234.jpg);
             }
 
             .full-height {
@@ -49,10 +53,10 @@
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
+                color: #e3e9ed;
+                padding: 0 35px;
+                font-size: 14px;
+                font-weight: 700;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
