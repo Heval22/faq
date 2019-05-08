@@ -26,6 +26,17 @@ Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerControlle
 Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name('answers.store');
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
+Route::get('/questions/{question_id}/answers/{answer_id}/note/create', 'NoteController@create')->name('notes.create');
+Route::post('/questions/{question_id}/answers/{answer}/note/', 'NoteController@store')->name('notes.store');
+Route::delete('/questions/{question_id}/answers/{answer}/note/{note_id}', 'NoteController@destroy')->name('notes.destroy');
 Route::resources([
     'questions' => 'QuestionController',
 ]);
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
+    Route::match(['get', 'post'], '/adminPage/', 'HomeController@admin');
+});
+Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function()
+{
+    Route::match(['get', 'post'], '/memberPage/', 'HomeController@member');
+});
