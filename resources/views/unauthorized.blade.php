@@ -1,23 +1,24 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <img class="card-img-top" src="https://files.auamed.org/uploads/faq.png"
+    <title>FAQ Final project</title>
+    <a href="{{ url('/home') }}">Home</a>
 
-    <title>FAQ</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
             height: 100vh;
             margin: 0;
         }
@@ -41,12 +42,12 @@
             text-align: center;
         }
         .title {
-            font-size: 84px;
+            font-size: 50px;
         }
         .links > a {
             color: #636b6f;
             padding: 0 25px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: .1rem;
             text-decoration: none;
@@ -59,26 +60,10 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
     <div class="content">
         <div class="title m-b-md">
-            FAQ
+            Welcome to the '{{$role}}' page
         </div>
-
-
     </div>
 </div>
 </body>
