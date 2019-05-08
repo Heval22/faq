@@ -67,7 +67,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($user, $profile)
+    public function edit($id)
     {
         $user = User::find($user);
         $profile = $user->profile;
@@ -81,7 +81,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $user, $profile)
+    public function update(Request $request, $id)
     {
         $input = $request->validate([
             'fname' => 'required',
@@ -95,7 +95,7 @@ class ProfileController extends Controller
         $profile->lname = $request->lname;
         $profile->body = $request->body;
         $profile->save();
-        return redirect()->route('home')->with('message', 'Updated Profile' );
+        return redirect()->route('home')->with('message', 'Updated Profile');
     }
     /**
      * Remove the specified resource from storage.

@@ -3,6 +3,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
+    //
     protected $fillable = ['body'];
     public function user()
     {
@@ -11,5 +12,9 @@ class Question extends Model
     public function answers()
     {
         return $this->hasMany('App\Answer');
+    }
+    public function additionalnotes()
+    {
+        return $this->hasMany('App\AdditionalNotes');
     }
 }

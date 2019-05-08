@@ -6,15 +6,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 class AnswerController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function index()
+    {
+        //
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -57,7 +61,8 @@ class AnswerController extends Controller
     public function show($question,  $answer)
     {
         $answer = Answer::find($answer);
-        return view('answer')->with(['answer' => $answer, 'question' => $question]);
+        $note = $answer->note;
+        return view('answer')->with(['answer' => $answer, 'question' => $question,'note' => $note]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -101,6 +106,6 @@ class AnswerController extends Controller
     {
         $answer = Answer::find($answer);
         $answer->delete();
-        return redirect()->route('questions.show',['question_id' => $question])->with('message', 'Deleted');
+        return redirect()->route('questions.show',['question_id' => $question])->with('message', 'Delete');
     }
 }
