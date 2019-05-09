@@ -40,3 +40,7 @@ Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function(
 {
     Route::match(['get', 'post'], '/memberPage/', 'HomeController@member');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
