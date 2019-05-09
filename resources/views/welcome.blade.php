@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <img class="card-img-top" src="https://previews.123rf.com/images/patthana/patthana1610/patthana161000004/69703443-tiger-jumping-hand-draw-and-paint-color-on-white-background-illustration-.jpg"
 
     <title>FAQ</title>
 
@@ -20,6 +19,9 @@
             font-weight: 200;
             height: 100vh;
             margin: 0;
+        }
+        body {
+            background-image: url(http://pngimg.com/uploads/tiger/tiger_PNG23249.png);
         }
         .full-height {
             height: 100vh;
